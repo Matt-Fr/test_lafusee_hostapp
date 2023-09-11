@@ -1,16 +1,34 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 
 // const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic";
 import { lazy } from "react";
+import ProductItem from "@/components/ProductItem";
 
 // const Product = lazy(() => import("remote_component/Product"));
 // const Product = dynamic(() => import("remote_component/Product"));
+export async function getStaticProps() {
+  try {
+    const res = await fetch("https://fakestoreapi.com/products");
+    const products = await res.json();
+    return {
+      props: {
+        products,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        products: [],
+      },
+    };
+  }
+}
 
-export default function Home() {
+export default function Home({ products }) {
+  console.log(products);
   return (
     <>
       <Head>
@@ -20,7 +38,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>all Products</h1>
+        <ul>
+          {products.map((product, index) => (
+            <ProductItem key={index} product={product}></ProductItem>
+          ))}
+        </ul>
       </main>
     </>
   );

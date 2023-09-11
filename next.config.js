@@ -1,7 +1,12 @@
 const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
-/** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
+
+  images: {
+    domains: ["fakestoreapi.com"],
+  },
+
   webpack: (config, options) => {
     const { isServer } = options;
     config.experiments = { topLevelAwait: true };
