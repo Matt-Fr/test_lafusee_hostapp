@@ -1,10 +1,24 @@
 import Head from "next/head";
-import Image from "next/image";
+
+import {
+  Typography,
+  AppBar,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+} from "@mui/material";
 
 // const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic";
 import { lazy } from "react";
 import ProductItem from "@/components/ProductItem";
+import Navbar from "@/components/Navbar";
 
 // const Product = lazy(() => import("remote_component/Product"));
 // const Product = dynamic(() => import("remote_component/Product"));
@@ -37,13 +51,59 @@ export default function Home({ products }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <CssBaseline />
+
       <main>
-        <ul>
+        <Container sx={{ py: 8 }} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {products.map((product, index) => (
+              <Grid item key={index} xs={12} sm={6} md={4}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardMedia
+                    component="div"
+                    sx={{
+                      // 16:9
+                      pt: "57%",
+                    }}
+                    objectFit="contain"
+                    image={product.image}
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe
+                      the content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">View</Button>
+                    <Button size="small">Edit</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </main>
+      {/* Footer */}
+      {/* End footer */}
+    </>
+  );
+}
+
+{
+  /* <ul>
           {products.map((product, index) => (
             <ProductItem key={index} product={product}></ProductItem>
           ))}
-        </ul>
-      </main>
-    </>
-  );
+        </ul> */
 }
