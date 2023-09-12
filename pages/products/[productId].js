@@ -5,6 +5,7 @@ import {
   Grid,
   Typography,
   Card,
+  CardMedia,
   Button,
   CssBaseline,
 } from "@mui/material";
@@ -22,12 +23,15 @@ const ProductDetail = ({ product }) => {
       <CssBaseline />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
-          <Card sx={{ p: 2 }}>
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={400}
-              height={400}
+          <Card component="div" className="container-picture-idpage">
+            <CardMedia
+              component="img"
+              image={product.image}
+              sx={{
+                height: "100%",
+                width: "100%",
+                objectFit: "contain",
+              }}
             />
           </Card>
         </Grid>

@@ -13,8 +13,12 @@ body {
   box-shadow: none;
 }
 
-.cardmedia {
+.container-picture-idpage {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 20rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
 }
