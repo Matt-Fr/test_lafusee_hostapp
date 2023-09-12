@@ -1,7 +1,19 @@
-import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/store/CartContext";
+import {
+  Typography,
+  AppBar,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+} from "@mui/material";
 
 const ProductItem = ({ product }) => {
   const { addToCart, cart } = useCart();
@@ -10,25 +22,37 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <>
-      <Link href={`/products/${product.id}`}>
-        <div className="product-image">
-          <Image
-            src={product.image}
-            alt={product.title}
-            width={200}
-            height={200}
+    <Grid item xs={12} sm={6} md={4}>
+      <Card
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Card component="div" className="card">
+          <CardMedia
+            component="img"
+            image={product.image}
+            sx={{
+              height: "100%",
+              width: "100%",
+              objectFit: "contain",
+            }}
           />
-        </div>
-        <div className="product-details">
-          <h2>{product.title}</h2>
-          <p>{product.category}</p>
-          <p>${product.price}</p>
-          <p>{product.description}</p>
-        </div>
-      </Link>
-      <button onClick={handleAddToCart}>add to cart</button>
-    </>
+        </Card>
+        <CardContent sx={{ flexGrow: 1 }}>
+          <Typography gutterBottom variant="h5" component="h2">
+            {product.title}
+          </Typography>
+          <Typography>{`$${product.price}`}</Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Add to cart</Button>
+          <Button size="small">View item</Button>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 };
 

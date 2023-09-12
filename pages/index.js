@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import ProductItem from "@/components/ProductItem";
 import {
   Typography,
   AppBar,
@@ -17,7 +17,6 @@ import {
 // const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic";
 import { lazy } from "react";
-import ProductItem from "@/components/ProductItem";
 import Navbar from "@/components/Navbar";
 
 // const Product = lazy(() => import("remote_component/Product"));
@@ -58,40 +57,7 @@ export default function Home({ products }) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {products.map((product, index) => (
-              <Grid item key={index} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Card component="div" className="card">
-                    <CardMedia
-                      component="img"
-                      image={product.image}
-                      sx={{
-                        height: "100%",
-                        width: "100%",
-                        objectFit: "contain",
-                      }}
-                    />
-                  </Card>
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+              <ProductItem key={index} product={product}></ProductItem>
             ))}
           </Grid>
         </Container>
