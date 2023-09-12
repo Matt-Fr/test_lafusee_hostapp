@@ -66,15 +66,17 @@ export default function Home({ products }) {
                     flexDirection: "column",
                   }}
                 >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: "57%",
-                    }}
-                    objectFit="contain"
-                    image={product.image}
-                  />
+                  <Card component="div" className="card">
+                    <CardMedia
+                      component="img"
+                      image={product.image}
+                      sx={{
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Card>
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Heading
