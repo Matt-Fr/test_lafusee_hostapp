@@ -48,11 +48,19 @@ const ProductItem = ({ product }) => {
           <Typography>{`$${product.price}`}</Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={handleAddToCart} size="small">
+          <Button
+            onClick={handleAddToCart}
+            size="small"
+            variant="contained"
+            color="secondary"
+            sx={{ m: "0.5rem" }}
+          >
             Add to cart
           </Button>
           <Link href={`/products/${product.id}`}>
-            <Button size="small">View item</Button>
+            <Button size="small" variant="contained">
+              View item
+            </Button>
           </Link>
         </CardActions>
       </Card>
