@@ -4,13 +4,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import Avatar from "@mui/material/Avatar";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
 import Typography from "@mui/material/Typography";
 import { useCart } from "@/store/CartContext";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ShoppingCart() {
   const { cart } = useCart();
@@ -24,6 +20,8 @@ export default function ShoppingCart() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <>
@@ -99,19 +97,16 @@ export default function ShoppingCart() {
           <MenuItem onClick={handleClose}>The shopping cart is empty</MenuItem>
         ) : (
           cart.map((item, index) => (
-            <MenuItem key={index} onClick={handleClose}>
-              {item.title} - ${item.price}
+            <MenuItem key={index}>
+              {item.title} ${item.price}
+              <DeleteIcon />
             </MenuItem>
           ))
         )}
-        <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
         <Divider />
-        <MenuItem></MenuItem>
+        <MenuItem>
+          Total Price: ${totalPrice.toFixed(2)} {/* Display the total price */}
+        </MenuItem>
       </Menu>
     </>
   );
