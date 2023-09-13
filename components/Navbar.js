@@ -56,8 +56,31 @@ export default function Navbar() {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
+          {cart.length === 0 ? (
+            ""
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "red",
+                padding: "4px",
+                borderRadius: "50%",
+                width: "24px",
+                height: "24px",
+                marginRight: "8px",
+              }}
+            >
+              <Typography sx={{ color: "white" }}>
+                {cart.length === 0 ? "" : cart.length}
+              </Typography>
+            </div>
+          )}
+
           <ShoppingCartIcon sx={{ color: "white" }} />
         </IconButton>
+
         <Menu
           anchorEl={anchorEl}
           id="account-menu"
