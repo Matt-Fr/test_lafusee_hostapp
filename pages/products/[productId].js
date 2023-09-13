@@ -11,10 +11,10 @@ import {
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShareIcon from "@mui/icons-material/Share";
-
+import Rating from "@mui/material/Rating";
+import Star from "@mui/icons-material/Star";
 const ProductDetail = ({ product }) => {
   if (!product) {
-    // Handle the case where the product is not found
     return <div>Product not found</div>;
   }
 
@@ -45,6 +45,14 @@ const ProductDetail = ({ product }) => {
           <Typography variant="h5" component="p" color="primary" gutterBottom>
             ${product.price}
           </Typography>
+          <Rating
+            name="product-rating"
+            value={product.rating.rate}
+            precision={0.1}
+            icon={<Star fontSize="inherit" />} //
+            size="large"
+            readOnly
+          />
           <Typography variant="body1" component="p">
             {product.description}
           </Typography>
