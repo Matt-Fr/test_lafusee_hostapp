@@ -11,15 +11,15 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ShoppingCart() {
   const { cart, removeFromCart } = useCart();
+
+  const handleDeleteItem = (item) => {
+    removeFromCart(item.id);
+  };
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-  };
-
-  const handleDeleteItem = (item) => {
-    removeFromCart(item);
   };
 
   const handleClose = () => {

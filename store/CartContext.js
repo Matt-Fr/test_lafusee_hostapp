@@ -10,8 +10,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (productId) => {
-    const updatedCart = cart.filter((product) => product.id !== productId);
-    setCart(updatedCart);
+    const indexOfItemToRemove = cart.findIndex(
+      (product) => product.id === productId
+    );
+
+    if (indexOfItemToRemove !== -1) {
+      const updatedCart = [...cart];
+      updatedCart.splice(indexOfItemToRemove, 1); // Remove the item at the found index
+      setCart(updatedCart);
+    }
   };
 
   return (
