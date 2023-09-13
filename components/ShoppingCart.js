@@ -1,6 +1,7 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
@@ -9,12 +10,16 @@ import { useCart } from "@/store/CartContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ShoppingCart() {
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleDeleteItem = (item) => {
+    removeFromCart(item);
   };
 
   const handleClose = () => {
@@ -63,7 +68,6 @@ export default function ShoppingCart() {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -94,12 +98,24 @@ export default function ShoppingCart() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         {cart.length === 0 ? (
-          <MenuItem onClick={handleClose}>The shopping cart is empty</MenuItem>
+          <MenuItem>The shopping cart is empty</MenuItem>
         ) : (
           cart.map((item, index) => (
             <MenuItem key={index}>
-              {item.title} ${item.price}
-              <DeleteIcon />
+              <div display="flex" justifyContent="space-between">
+                <Typography noWrap width="7rem">
+                  {item.title}
+                </Typography>
+
+                <span>${item.price}</span>
+              </div>
+              <Button
+                onClick={() => handleDeleteItem(item)}
+                variant="outlined"
+                startIcon={<DeleteIcon />}
+              >
+                Delete
+              </Button>
             </MenuItem>
           ))
         )}

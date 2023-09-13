@@ -14,10 +14,6 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
