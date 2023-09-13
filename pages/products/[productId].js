@@ -19,7 +19,7 @@ const ProductDetail = ({ product }) => {
   }
 
   return (
-    <Container>
+    <Container sx={{ my: 5 }}>
       <CssBaseline />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
