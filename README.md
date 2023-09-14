@@ -4,6 +4,8 @@
 
 The E-Commerce App is a web application designed to showcase various products. Users can explore a catalog of products, add them to their shopping cart, and view detailed information about each product by clicking on it.
 
+[Demo](https://test-lafusee-hostapp.vercel.app/)
+
 ## Features
 
 - Browse and search for products.
