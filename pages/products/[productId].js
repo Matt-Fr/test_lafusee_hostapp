@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Container,
@@ -14,11 +14,21 @@ import ShareIcon from "@mui/icons-material/Share";
 import Rating from "@mui/material/Rating";
 import Star from "@mui/icons-material/Star";
 import { useCart } from "@/store/CartContext";
+import SnackbarComponent from "@/components/Snackbar";
 
 const ProductDetail = ({ product }) => {
   const { addToCart, cart } = useCart();
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleAddToCart = () => {
-    addToCart(product); // Call the addToCart function with the product
+    addToCart(product);
+    setOpenSnackbar(true);
+  };
+
+  const closeSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenSnackbar(false); // Close the Snackbar
   };
 
   if (!product) {
@@ -82,6 +92,7 @@ const ProductDetail = ({ product }) => {
           </Button>
         </Grid>
       </Grid>
+      <SnackbarComponent open={openSnackbar} onClose={closeSnackbar} />
     </Container>
   );
 };

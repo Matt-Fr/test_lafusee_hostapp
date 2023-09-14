@@ -15,10 +15,11 @@ import {
   Container,
 } from "@mui/material";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, onAddToCart }) => {
   const { addToCart, cart } = useCart();
   const handleAddToCart = () => {
-    addToCart(product); // Call the addToCart function with the product
+    addToCart(product);
+    onAddToCart();
   };
 
   return (

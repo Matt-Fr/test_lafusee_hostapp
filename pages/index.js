@@ -1,23 +1,11 @@
 import Head from "next/head";
 import ProductItem from "@/components/ProductItem";
-import {
-  Typography,
-  AppBar,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  CssBaseline,
-  Grid,
-  Toolbar,
-  Container,
-} from "@mui/material";
-
+import { CssBaseline, Grid, Container } from "@mui/material";
 // const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic";
-import { lazy } from "react";
+import { lazy, useState } from "react";
 import Navbar from "@/components/Navbar";
+import SnackbarComponent from "@/components/Snackbar";
 
 // const Product = lazy(() => import("remote_component/Product"));
 // const Product = dynamic(() => import("remote_component/Product"));
@@ -42,6 +30,11 @@ export async function getStaticProps() {
 
 export default function Home({ products }) {
   console.log(products);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleSnackbarOpen = () => {
+    setOpenSnackbar(true);
+  };
   return (
     <>
       <Head>
@@ -57,21 +50,19 @@ export default function Home({ products }) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {products.map((product, index) => (
-              <ProductItem key={index} product={product}></ProductItem>
+              <ProductItem
+                key={index}
+                product={product}
+                onAddToCart={handleSnackbarOpen}
+              ></ProductItem>
             ))}
           </Grid>
         </Container>
+        <SnackbarComponent
+          open={openSnackbar}
+          onClose={() => setOpenSnackbar(false)}
+        />
       </main>
-      {/* Footer */}
-      {/* End footer */}
     </>
   );
-}
-
-{
-  /* <ul>
-          {products.map((product, index) => (
-            <ProductItem key={index} product={product}></ProductItem>
-          ))}
-        </ul> */
 }
