@@ -103,7 +103,7 @@ export default function ShoppingCart() {
           cart.map((item, index) => (
             <MenuItem key={index}>
               <div display="flex" justifyContent="space-between">
-                <Typography noWrap width="7rem">
+                <Typography noWrap width="10rem">
                   {item.title}
                 </Typography>
 
@@ -114,7 +114,7 @@ export default function ShoppingCart() {
                 variant="outlined"
                 startIcon={<DeleteIcon />}
               >
-                Delete
+                Remove
               </Button>
             </MenuItem>
           ))

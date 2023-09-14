@@ -9,7 +9,7 @@ import ShoppingCart from "./ShoppingCart";
 
 export default function Navbar() {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <Link href="/">
           <IconButton sx={{ color: "white" }}>
@@ -18,7 +18,7 @@ export default function Navbar() {
         </Link>
 
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Ecommerce Project
+          E-commerce
         </Typography>
 
         <ShoppingCart />
