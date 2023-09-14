@@ -13,7 +13,6 @@ export const CartProvider = ({ children }) => {
     const indexOfItemToRemove = cart.findIndex(
       (product) => product.id === productId
     );
-
     if (indexOfItemToRemove !== -1) {
       const updatedCart = [...cart];
       updatedCart.splice(indexOfItemToRemove, 1); // Remove the item at the found index

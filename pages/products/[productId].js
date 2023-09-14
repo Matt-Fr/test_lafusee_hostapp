@@ -13,7 +13,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShareIcon from "@mui/icons-material/Share";
 import Rating from "@mui/material/Rating";
 import Star from "@mui/icons-material/Star";
+import { useCart } from "@/store/CartContext";
+
 const ProductDetail = ({ product }) => {
+  const { addToCart, cart } = useCart();
+  const handleAddToCart = () => {
+    addToCart(product); // Call the addToCart function with the product
+  };
+
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -61,6 +68,7 @@ const ProductDetail = ({ product }) => {
             color="secondary"
             startIcon={<ShoppingCartIcon />}
             sx={{ mt: 2 }}
+            onClick={handleAddToCart}
           >
             Add to cart
           </Button>
