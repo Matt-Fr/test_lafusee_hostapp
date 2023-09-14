@@ -1,11 +1,9 @@
 import Head from "next/head";
 import ProductItem from "@/components/ProductItem";
 import { CssBaseline, Grid, Container } from "@mui/material";
-// const inter = Inter({ subsets: ["latin"] });
-import dynamic from "next/dynamic";
 import { lazy, useState } from "react";
-import Navbar from "@/components/Navbar";
 import SnackbarComponent from "@/components/Snackbar";
+import dynamic from "next/dynamic";
 
 // const Product = lazy(() => import("remote_component/Product"));
 // const Product = dynamic(() => import("remote_component/Product"));

@@ -120,9 +120,7 @@ export default function ShoppingCart() {
           ))
         )}
         <Divider />
-        <MenuItem>
-          Total Price: ${totalPrice.toFixed(2)} {/* Display the total price */}
-        </MenuItem>
+        <MenuItem>Total Price: ${totalPrice.toFixed(2)}</MenuItem>
       </Menu>
     </>
   );

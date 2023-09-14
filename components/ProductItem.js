@@ -1,18 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/store/CartContext";
 import {
   Typography,
-  AppBar,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  CssBaseline,
   Grid,
-  Toolbar,
-  Container,
 } from "@mui/material";
 
 const ProductItem = ({ product, onAddToCart }) => {
