@@ -45,7 +45,6 @@ export default function Home({ products }) {
 
       <main>
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
             {products.map((product, index) => (
               <ProductItem

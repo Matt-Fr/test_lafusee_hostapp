@@ -16,11 +16,9 @@ export default function Navbar() {
             <HomeIcon />
           </IconButton>
         </Link>
-
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           E-commerce
         </Typography>
-
         <ShoppingCart />
       </Toolbar>
     </AppBar>
