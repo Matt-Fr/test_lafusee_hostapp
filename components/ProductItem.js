@@ -26,7 +26,13 @@ const ProductItem = ({ product, onAddToCart }) => {
           flexDirection: "column",
         }}
       >
-        <Card component="div" className="card">
+        <Card
+          component="div"
+          className="card"
+          sx={{
+            boxShadow: "none",
+          }}
+        >
           <CardMedia
             component="img"
             image={product.image}
@@ -34,6 +40,7 @@ const ProductItem = ({ product, onAddToCart }) => {
               height: "100%",
               width: "100%",
               objectFit: "contain",
+              boxShadow: "none",
             }}
           />
         </Card>
