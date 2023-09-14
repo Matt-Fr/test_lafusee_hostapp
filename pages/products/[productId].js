@@ -39,7 +39,13 @@ const ProductDetail = ({ product }) => {
       <CssBaseline />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
-          <Card component="div" className="container-picture-idpage">
+          <Card
+            component="div"
+            sx={{
+              boxShadow: "none",
+            }}
+            className="container-picture-idpage"
+          >
             <CardMedia
               component="img"
               image={product.image}

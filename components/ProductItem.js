@@ -28,7 +28,7 @@ const ProductItem = ({ product, onAddToCart }) => {
       >
         <Card
           component="div"
-          className="card"
+          className="card-container-pic"
           sx={{
             boxShadow: "none",
           }}
