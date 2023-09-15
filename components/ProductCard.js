@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 const ProductItem = ({ product, onAddToCart }) => {
-  const { addToCart, cart } = useCart();
+  const { addToCart } = useCart();
   const handleAddToCart = () => {
     addToCart(product);
     onAddToCart();

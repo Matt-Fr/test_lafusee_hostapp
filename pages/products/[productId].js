@@ -48,6 +48,7 @@ const ProductDetail = ({ product }) => {
           >
             <CardMedia
               component="img"
+              alt={product.title}
               image={product.image}
               sx={{
                 height: "100%",

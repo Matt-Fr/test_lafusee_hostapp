@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ProductItem from "@/components/ProductItem";
+import ProductCard from "@/components/ProductCard";
 import { CssBaseline, Grid, Container } from "@mui/material";
 import { lazy, useState } from "react";
 import SnackbarComponent from "@/components/Snackbar";
@@ -48,11 +48,11 @@ export default function Home({ products }) {
         <Container sx={{ py: 8 }} maxWidth="md">
           <Grid container spacing={4}>
             {products.map((product, index) => (
-              <ProductItem
+              <ProductCard
                 key={index}
                 product={product}
                 onAddToCart={handleSnackbarOpen}
-              ></ProductItem>
+              ></ProductCard>
             ))}
           </Grid>
         </Container>
