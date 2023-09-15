@@ -35,6 +35,7 @@ const ProductItem = ({ product, onAddToCart }) => {
         >
           <CardMedia
             component="img"
+            alt={product.title}
             image={product.image}
             sx={{
               height: "100%",
